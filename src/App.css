@@ -1,38 +1,239 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* reusable */
+ul {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button,
+input {
+  border: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: hsl(0, 0%, 9%);
+}
+.header {
+  background-color: black;
+}
+
+body {
+  background-image: url(./components/img/gaya_theme.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+:root {
+  /* color */
+
+  /* ====== */
+  --hue-color: 0;
+  /* ====== */
+  --first-color: hsl(var(--hue-color), 99%, 40%);
+  --hover-color: hsl(var(--hue-color), 100%, 47%);
+  --text-color: hsl(var(--hue-color), 0%, 9%);
+
+  /* text */
+  --small-font-size: 500;
+  --meduim-font-size: 600;
+}
+/* header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 40px;
+}
+
+/* home */
+
+.home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 90vh;
 }
 
-.App-link {
-  color: #61dafb;
+.home__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home__data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-data {
+  display: flex;
+  align-items: center;
+}
+
+.home__line {
+  background-color: var(--first-color);
+  width: 40px;
+  height: 2.5px;
+  margin-right: 5px;
+  border-radius: 5rem;
+}
+
+.home__subtitle {
+  font-size: 1rem;
+}
+
+.home__title {
+  font-size: 5rem;
+}
+.home__title span {
+  padding: 0.2rem;
+  transition: 0.5s;
+}
+
+.home__title span:hover {
+  font-size: 5.5rem;
+  cursor: pointer;
+  color: var(--hover-color);
+}
+
+.home__links {
+  display: flex;
+  align-items: center;
+}
+
+.link__buton {
+  background-color: var(--first-color);
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.link__buton:hover {
+  background-color: var(--hover-color);
+}
+
+/* portfolio */
+.portfolio {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.portfolio__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  border-radius: 4rem;
+  position: relative;
+}
+
+.portfolio__title {
+  color: #fff;
+  font-size: 5rem;
+  margin-bottom: 4rem;
+}
+
+.portfolio__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio__left {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  transform: translateY(-100px);
+}
+
+.left__title {
+  font-size: 5rem;
+}
+
+.portfolio__right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.box__column {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  width: 250px;
+  height: 150px;
+  position: relative;
+  color: black;
+  margin: 10px;
+}
+
+.box .front,
+.box .back {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  background-color: #fff;
+  backface-visibility: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px -2px #000000;
+  transition: transform 0.9s;
+}
+
+.box .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: perspective(800px) rotateX(-180deg);
+}
+
+.box .back p,
+h2 {
+  margin: 10px 20px;
+  text-align: center;
+  color: black;
+}
+
+.box .front img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  position: absolute;
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+    hue-rotate(-50deg) saturate(400%) contrast(2);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
+    saturate(600%) contrast(1);
+}
+
+.box:hover .front {
+  transform: perspective(800px) rotateX(180deg);
+}
+
+.box:hover .back {
+  border-radius: 20px;
+  transform: perspective(800px) rotateX(0);
 }
